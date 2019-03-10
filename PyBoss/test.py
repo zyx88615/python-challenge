@@ -86,6 +86,9 @@ with open(csvpath, newline='') as csvfile:
         state.append(a[4])
     zzip = zip(id,name,dob,ssn,state)
 
+zzzzz= (list(zzip))
+for a in zzzzz:
+    print(a)
 
 
 output_file = os.path.join("output2.csv")
