@@ -1,5 +1,5 @@
 import os
-
+import numpy as np
 # Module for reading CSV files
 import csv
 csvpath = os.path.join(os.path.dirname(__file__),'raw_data', 'paragraph_1.txt')
@@ -17,6 +17,31 @@ with open(csvpath,'r') as f:
     for word in p1word:
        totalletter = totalletter+len(word)
     print(f"Letters in Paragraph1: {totalletter}")
+'''
+    #--------------------------------------#
+    k={}
+    for word in p1word:
+        k.update({word: [len(word),0]})
+
+    for word in p1word:
+        if word in k:
+            k[word][1] += 1
+    print(k)
+    z=0
+    zz=0
+    for word, list in k.items():
+       z=list[0]*list[1]     #could use numpy here  np.prod(list)  already import numpy
+       zz=zz+z
+    print(f"letter count: {zz}")       
+    #-----------------------------------#
+#  this is an alternative for letter count. Example make  dictionary like {'Gene': [4,2]}  
+# 'Gene' is the key, [4,2] , 4 is letter count,  2 is the appearance of word in the file
+#  simply  multiply the list  and  iterate   will have same letter count   , code works
+'''
+
+
+
+#paragraph 2 reading
 
 with open(csvpath1, 'r') as f:
     # CSV reader specifies delimiter and variable that holds contents
